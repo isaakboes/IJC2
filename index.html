@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+    <title>It's Just Chess</title>
+    <style>
+        body{
+            background-color:#1f1f1f;
+            color:#F9F9F9;
+            margin: 0%;
+            height: 100%;
+            overflow: hidden;
+        }
+        canvas{
+            background-color:#2f2f2f;
+            image-resolution: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: -webkit-crisp-edges;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+            padding:0%;
+        }
+    </style>
+</head>
+<body>
+    <noscript>You need to have javascript enabled to play ItsJustChess</noscript>
+    <canvas width=100%, height=100%, id="canv"></canvas>
+
+    <script type="text/javascript" src="scripts/assetManager.js"></script>
+    <script type="text/javascript" src="scripts/inputs.js"></script>
+    <script type="text/javascript" src="scripts/vars.js"></script>
+
+    <script type="text/javascript" src="scripts/main.js"></script>
+</body>
