@@ -20,12 +20,12 @@ function main(){
         break;
     }
 
-    particles.update();//renders particles
+    //particles.update();//renders particles
 }
 
 function titleScreen(){
 
-    if(mouseDown)emit("#FF0000",mouseX,mouseY,100,100,50,2,10,40,40);
+    //if(mouseDown)emit("#FF0000",mouseX,mouseY,100,100,50,2,10,40,40);
     
     //particles.list.push(new Particle(mouseX,mouseY,"#FF0000",randomInt(-particleSpeed,particleSpeed),randomInt(-particleSpeed,particleSpeed),30,randomInt(11,15)/10,10,0));
 
