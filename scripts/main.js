@@ -25,7 +25,6 @@ function main(){
 function titleScreen(){
 
     //displays the title
-    const knightSize = pageWidth/1.4;//sets the size of the knight rendered on the screen
     const startButtonSize = pageWidth/7;//sets the start button's size to be relative to the screen's size
     const titleSize = pageWidth/2;//sets the title header's size
     const titleOffset = pageWidth/8;//the seperation between the title and the start button

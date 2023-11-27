@@ -15,3 +15,11 @@ function setCanvasSize(){//sets the canvas borders to the window borders
 }
 
 var phase = "loading";//the current phase the game is running, title, main, credits, etc.
+
+var board = {};//the board variable, stores all tiles in play
+
+class Board {
+    constructor(){
+        
+    }
+}
