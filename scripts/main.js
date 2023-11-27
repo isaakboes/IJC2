@@ -20,14 +20,9 @@ function main(){
         break;
     }
 
-    //particles.update();//renders particles
 }
 
 function titleScreen(){
-
-    //if(mouseDown)emit("#FF0000",mouseX,mouseY,100,100,50,2,10,40,40);
-    
-    //particles.list.push(new Particle(mouseX,mouseY,"#FF0000",randomInt(-particleSpeed,particleSpeed),randomInt(-particleSpeed,particleSpeed),30,randomInt(11,15)/10,10,0));
 
     //displays the title
     const knightSize = pageWidth/1.4;//sets the size of the knight rendered on the screen
@@ -47,10 +42,6 @@ function titleScreen(){
     }else{//if the cursor is not within the button
         ctx.drawImage(sprite.startButton,pageWidth/2-startButtonSize/2+(mouseX-pageWidth)/20,pageHeight/2-startButtonSize/4+titleOffset+(mouseY-pageHeight)/20,startButtonSize,startButtonSize/2);
     }
-
-    // //temp
-    // ctx.drawImage(sprite.titleKnight,pageWidth-knightSize+(pageWidth/6)+mouseX/10,pageHeight-knightSize+(pageHeight/6)+mouseY/10,knightSize,knightSize);//renders the knight relative to the page width
-    // ctx.drawImage(sprite.shotgun,pageWidth-knightSize*2+(pageWidth*0.4)+mouseX/4,pageHeight-knightSize*2+(pageHeight*1.1)+mouseY/4,knightSize*2,knightSize*2)
 
 }
 
