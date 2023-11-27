@@ -48,9 +48,9 @@ function titleScreen(){
         ctx.drawImage(sprite.startButton,pageWidth/2-startButtonSize/2+(mouseX-pageWidth)/20,pageHeight/2-startButtonSize/4+titleOffset+(mouseY-pageHeight)/20,startButtonSize,startButtonSize/2);
     }
 
-    //temp
-    ctx.drawImage(sprite.titleKnight,pageWidth-knightSize+(pageWidth/6)+mouseX/10,pageHeight-knightSize+(pageHeight/6)+mouseY/10,knightSize,knightSize);//renders the knight relative to the page width
-    ctx.drawImage(sprite.shotgun,pageWidth-knightSize*2+(pageWidth*0.4)+mouseX/4,pageHeight-knightSize*2+(pageHeight*1.1)+mouseY/4,knightSize*2,knightSize*2)
+    // //temp
+    // ctx.drawImage(sprite.titleKnight,pageWidth-knightSize+(pageWidth/6)+mouseX/10,pageHeight-knightSize+(pageHeight/6)+mouseY/10,knightSize,knightSize);//renders the knight relative to the page width
+    // ctx.drawImage(sprite.shotgun,pageWidth-knightSize*2+(pageWidth*0.4)+mouseX/4,pageHeight-knightSize*2+(pageHeight*1.1)+mouseY/4,knightSize*2,knightSize*2)
 
 }
 
