@@ -63,3 +63,26 @@ class startCards extends Event{
         //cardsEnabled = true;
     }
 }
+
+//TODO: Add the image storing and rendering code for image events/
+
+/**
+ * This is an event that adds an aesthetic element to the game screen like the tile banner
+ */
+class visualEvent extends Event{
+    /** 
+     * @param {String} name Event Name
+     * @param {String} description Event description
+     * @param {ToBeDetermined} image Image to display
+     */
+    constructor(name,description,image){
+        super(name,description);
+        this.image = image;
+    }
+    /**
+     * Adds the relevant image to the list of images to render on the main screen
+     */
+    runEvent(){
+
+    }
+}
