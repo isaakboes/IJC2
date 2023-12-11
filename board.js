@@ -29,23 +29,12 @@ class Move {
      * This constructor is for all pieces.
      * @param {int} dx The horizontal motion of the move
      * @param {int} dy The vertical motion of the move
-     * @param {boolean} repeated Can the move be repeated infinitely (i.e. bishops or rooks moves can be repeated until they run into something)
+     * @param {boolean} repeated Can the move be repeated infinitely (i.e. bishops or rooks moves can be repeated until they run into something) Has a default value of False.
      */
-    constructor(dx,dy,repeated){
+    constructor(dx,dy,repeated = false){
         this.dx = dx;
         this.dy = dy;
         this.repeated = repeated;
-    }
-    /**
-     * This constructor is for all pieces.
-     * @param {int} dx The horizontal motion of the move
-     * @param {int} dy The vertical motion of the move
-     * This move isn't repeated
-     */
-    constructor(dx,dy){
-        this.dx = dx;
-        this.dy = dy;
-        this.repeated = false;
     }
     /**
      * Gets the dx variable of this move
@@ -84,7 +73,10 @@ class Piece {
         this.height = height;
         this.team = team;
         this.moves = moves;
+        this.xPrevious = null;
+        this.yPrevious = null;
     }
+    
     /**
      * Gets the piece horizontal position
      * @returns Piece's x position
@@ -154,14 +146,15 @@ class Piece {
         return this.y+this.height-1;
     }
     
-
     /**
      * Moves a piece in accordance with a move from a given index.
      * @param {int} index The index of the move to move the piece with
      */
     movePiece(index){
-        this.x += this.moves[index].getDx();
-        this.Y += this.moves[index].getDY();
+        this.xPrevious = this.xPosition;
+        this.yPrevious = this.yPosition;
+        this.xPosition += this.moves[index].getDx();
+        this.yPosition += this.moves[index].getDy();
         
     }
     
