@@ -28,7 +28,7 @@ class Move {
     /**
      * This constructor is for all pieces.
      * @param {int} dx The horizontal motion of the move
-     * @param {int} dy The vertical motion of the move
+     * @param {int} dy The vertical motion of the move. Note that for use of pawns, positive j values correspond to "forward" movements.
      * @param {boolean} repeated Can the move be repeated infinitely (i.e. bishops or rooks moves can be repeated until they run into something) Has a default value of False.
      */
     constructor(dx,dy,repeated = false){
@@ -50,6 +50,15 @@ class Move {
     getDy(){
         return this.dy;
     }
+    /**
+     * Most moves have no special conditions so they don't have any checks here. Subclasses can extend this method to determine the move's validity
+     * @param {int} pieceList the list of pieces on the board
+     * @param {int} index the relevant move's pieces
+     * @returns A boolean referring to whether or not the proposed move is valid
+     */
+    getValidity(pieceList, index) {
+        return true;
+    }
 }
 
 /**
@@ -66,7 +75,7 @@ class Piece {
      * @param {String} pieceName the name of the piece (For example, tyler)
      * @param {Move[]} moves the list of moves the piece can move in
      */
-    constructor(x, y, width,height,team, moves){
+    constructor(x, y, width = 1,height = 1,team, moves){
         this.xPosition = x;
         this.yPosition = y;
         this.width = width;
