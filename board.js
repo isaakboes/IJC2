@@ -1,5 +1,11 @@
 /**
  * This class stores a chess board which contains a list of tiles and a list of pieces
+ * 
+ * The board object is primarily a container for these two lists. 
+ * One of all the pieces on the board. Each piece stores it's location and all pertinent information about it
+ * One of tiles which store their color and redundant information about the team of the piece which is on it. 
+ * The tile stores just the team of the piece on it. This information is redundant but it will save time because instead of generating a new list of relevant tiles we can just search this.
+ * To update the tile information the updateTileData() method must be run.
  */
 class Board {
     /**
