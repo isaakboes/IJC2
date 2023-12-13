@@ -99,15 +99,54 @@ class givePieceEvent extends Event {
      * @param {int} quantity Quantity of the piece to give
      * @param {Boolean} activeTeam Whether or not the pieces should be given to the active team or not
      */
-    constructor(name,description, piece, quantity = 1, activeTeam = true){
+    constructor(name,description, piece, quantity = 1, forActiveTeam = true){
         super(name, description)
         this.piece = piece;
         this.quantity = quantity;
-        this.activeTeam = true;
+        this.forActiveTeam = forActiveTeam;
     }
 
     runEvent(){
-        
+        //Finds open piece tile indices
+        var unoccupiedTileLocations = [];
+
+        //Sets the pieceTeam variable
+        var pieceTeam;
+        if(activeTeam == Team.white){
+            pieceTeam = this.forActiveTeam ? Team.white : Team.black;
+        }else if(activeTeam == Team.black){
+            pieceTeam = this.forActiveTeam ? Team.black : Team.white;
+        }else{
+            console.log("SOMETHING BAD HAPPENED");
+        }
+
+        //If the player receiving the pieces is the white team, they can't be placed closer than the third rank
+        const yStartPosition = (pieceTeam==Team.white) ? 2 : 0
+        //If the player receiving the pieces is the black team they can't be placed lower than the 6th rank
+        const yEndPosition = (pieceTeam==Team.black) ? tiles[i].length()-2 : tiles[i].length();
+
+        for(var i = 0; i<tiles.length(); i++){
+            for(var j = yStartPosition; j<yEndPosition; j++){
+                if(tiles[i][j].givePieceTeam() == null) unoccupiedTileLocations.add([i,j]);
+            }
+        }
+
+        for(var repetitions = 0; repetitions<this.quantity; repetitions++){
+            
+            //The random index of the location to select.
+            const randomTileIndex = (unoccupiedTileLocations.length())*Math.random()
+            //Creates a piece
+            var pieceToAdd = this.piece;
+            //Sets the piece's location to the chosen unoccupied tile
+            pieceToAdd.setX(unoccupiedTileLocations[randomTileIndex][0]);
+            pieceToAdd.setX(unoccupiedTileLocations[randomTileIndex][1]);
+            pieceToAdd.setTeam(pieceTeam);
+            //Adds the piece to the gameBoard's list of pieces
+            gameBoard.pieces.add(pieceToAdd);
+
+            //Removes the previously unoccupied location from the list.
+            unoccupiedTileLocations.remove(randomTileIndex);
+        }
     }
 
 }

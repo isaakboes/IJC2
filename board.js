@@ -1,10 +1,30 @@
+/**
+ * This class stores a chess board which contains a list of tiles and a list of pieces
+ */
 class Board {
-    constructor(width,height, pieces){
+    /**
+     * @param {int} width Width of the board in tiles
+     * @param {int} height Height of the board in tiles
+     * @param {Piece[]} pieces The list of pieces on the board (Defaults to the normal chess pieces)
+     */
+    constructor(width,height, pieces = defaultChessPieces){
         this.sizeX = width;
         this.sizeY = height;
         this.pieces = pieces;
+        this.tiles = new Tile[width][height];
+
+        //Sets the default color of each tile.
+        for(var i = 0; i<this.tiles.length(); i++){
+            for(var j = 0; j<this.tiles[i].length(); j++){
+                //Sets the checkerboard color of each tile
+                this.tiles[i][j].color = ((i+j)%2==0) ? lightBoardColor : darkBoardColor;
+            }
+        }
+
+        //Sets the tile piece information
+        this.updateTileData();
     }
-    tiles = [];
+    
     generateBoard(sizeX,sizeY){
 
     }
@@ -29,11 +49,60 @@ class Board {
     getPieces(){
         return this.pieces;
     }
+    /**
+     * Updates the data on pieces stored in each tile
+     */
+    updateTileData(){
+        //Sets tile data to null for all pieces.
+        for(var i = 0; i<this.tiles.length(); i++){
+            for(var j = 0; j<this.tiles[i].length(); j++){
+                tiles[i][j].setPieceTeam(null);
+            }
+        }
+
+        for(var i = 0; i<this.pieces.length(); i++){
+            if(pieces[i].getWidth()==1 && pieces[i].getHeight()==1){
+                //Sets the tile at the index of the piece to have the same team stored as the piece
+                tiles[pieces[i].getFirstXIndex()][pieces[i].getFirstYIndex()].setPieceTeam(pieces[i].Team);
+            }else{
+                //For multi tile pieces sets the index of all relevant tiles to the same team as the piece
+                for(var x = 0; x<pieces[i].getWidth(); x++){
+                    for(var y = 0; y<pieces[i].getHeight(); y++){
+                        tiles[pieces[i].getFirstXIndex()+x][pieces[i].getFirstYIndex()+y].setPieceTeam(pieces[i].Team);
+                    }
+                }
+
+            }
+            
+        }
+    }
 }
 
+/**
+ * This Tile object stores a few parameters specific to the tile. It also stores a bit of redundant information to save time
+ */
 class Tile {
-    constructor(){
-
+    /**
+     * @param {Color} color The color of the tile
+     * @param {Team} pieceTeam The team of the piece on this tile. Or null. This information is redundant but will save time when checking through the board.
+     */
+    constructor(color, pieceTeam){
+        this.color = color;
+        this.pieceTeam = pieceTeam;
+    }
+    /**
+     * Gets the team of the piece on it
+     * @returns The team of the piece on the tile
+     */
+    getPieceTeam(){
+        return this.pieceTeam;
+    }
+    /**
+     * Sets a new team for the tile to store
+     * @param {Team} team The new team to set the tile to have
+     */
+    setPieceTeam(team){
+        this.pieceTeam = team;
     }
 }
 /**
@@ -122,6 +191,22 @@ class Piece {
     getY(){
         return this.yPosition;
     }
+    /**
+     * Sets the X position of this piece
+     * @param {int} x New X position
+     */
+    setX(x){
+        this.xPosition = x;
+    }
+    /**
+     * Sets the Y position of this piece
+     * @param {int} y New Y position
+     */
+    setX(y){
+        this.yPosition = y;
+    }
+    
+
     /** Gets the width of the piece
      * @returns piece width in board tiles
      */

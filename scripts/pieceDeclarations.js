@@ -254,3 +254,6 @@ class Knight extends Piece {
         super(x,y,team,this.knightMoveList);
     }
 }
+
+
+
