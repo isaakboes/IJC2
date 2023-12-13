@@ -16,7 +16,11 @@ function setCanvasSize(){//sets the canvas borders to the window borders
 
 var phase = "loading";//the current phase the game is running, title, main, credits, etc.
 
-const defaultBoard = [
-    [null,null],
-    [null,null]
+/**
+ * This variable stores the active team
+ */
+var activeTeam = Team.white;
+
+const defaultBoardPieceList = [
+    
 ];

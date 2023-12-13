@@ -1,11 +1,33 @@
 class Board {
-    constructor(sizeX=8,sizeY=8){
-        this.x = sizeX;
-        this.y = sizeY;
+    constructor(width,height, pieces){
+        this.sizeX = width;
+        this.sizeY = height;
+        this.pieces = pieces;
     }
     tiles = [];
     generateBoard(sizeX,sizeY){
 
+    }
+    /**
+     * Gets the width of the board
+     * @returns the width of the board
+     */
+    getWidth(){
+        return this.sizeX;
+    }
+    /**
+     * Gets the height of the board
+     * @returns the height of the board
+     */
+    getHeight(){
+        return this.sizeY;
+    }
+    /**
+     * Gets the pieces on the board
+     * @returns The list of Piece objects on this board
+     */
+    getPieces(){
+        return this.pieces;
     }
 }
 
@@ -154,17 +176,29 @@ class Piece {
     getLastYIndex(){
         return this.y+this.height-1;
     }
-    
+
     /**
-     * Moves a piece in accordance with a move from a given index.
-     * @param {int} index The index of the move to move the piece with
+     * Gets all valid moves the piece can make to be used in highlighting the board.
+     * @returns {int[][]} a 2d array corresponding to the dx and dy values of valid moves.
      */
-    movePiece(index){
-        this.xPrevious = this.xPosition;
-        this.yPrevious = this.yPosition;
-        this.xPosition += this.moves[index].getDx();
-        this.yPosition += this.moves[index].getDy();
-        
+    getValidMoves(){
+        //TODO: Make this method iterate through all moves and return the valid ones
+        //TODO: Checks the move validity for each move
+        //TODO: Handles repeated moves
+        //TODO: Ends repeated moves appropriately
+        return null;
     }
+    
+    // /**
+    //  * Moves a piece in accordance with a move from a given index.
+    //  * @param {int} index The index of the move to move the piece with
+    //  */
+    // movePiece(index){
+    //     this.xPrevious = this.xPosition;
+    //     this.yPrevious = this.yPosition;
+    //     this.xPosition += this.moves[index].getDx();
+    //     this.yPosition += this.moves[index].getDy();
+        
+    // }
     
 }

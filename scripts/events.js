@@ -83,6 +83,31 @@ class visualEvent extends Event{
      * Adds the relevant image to the list of images to render on the main screen
      */
     runEvent(){
-
+        //TODO: Make the visual event runEvent
+        //TODO: Maybe it adds it's image (or image to be rendered object) to list of them to be rendered
     }
+}
+
+/**
+ * This event gives a piece to the active team. 
+ */
+class givePieceEvent extends Event {
+    /**
+     * @param {String} name The card name
+     * @param {String} description The card description
+     * @param {Piece} piece The piece to give
+     * @param {int} quantity Quantity of the piece to give
+     * @param {Boolean} activeTeam Whether or not the pieces should be given to the active team or not
+     */
+    constructor(name,description, piece, quantity = 1, activeTeam = true){
+        super(name, description)
+        this.piece = piece;
+        this.quantity = quantity;
+        this.activeTeam = true;
+    }
+
+    runEvent(){
+        
+    }
+
 }
