@@ -17,6 +17,9 @@ function setCanvasSize(){//sets the canvas borders to the window borders
 var lightBoardColor = 10; //TODO: Set these colors
 var darkBoardColor = 200;
 
+/**
+ * TODO: Isaak could we change this to an object like I have team setup as? See board.js Line 117
+ */
 var phase = "loading";//the current phase the game is running, title, main, credits, etc.
 
 /**

@@ -46,5 +46,13 @@ function titleScreen(){
 
 function game(){
     //the main game loop
+
+    //TODO: Render Board
+    //TODO: Process Turns
+    //TODO: Things the player can do on their turn
+    //?: Click on a piece to move it
+    //? Right click on a piece or the tile underneath it
+    //? Draw a Card
+    //? 
     
 }
